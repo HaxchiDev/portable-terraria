@@ -1,0 +1,39 @@
+"installscript"
+{
+	"registry"
+	{
+		"hkey_local_machine\\software\\re-logic\\terraria"
+		{
+			"string"
+			{
+				"install_path"		"%INSTALLDIR%"
+				"exe_path"		"%INSTALLDIR%\\Terraria.exe"
+			}
+			"dword"
+			{
+				"patchversion"		"0"
+			}
+		}
+	}
+	"Run Process"
+	{
+		"install"
+		{
+			"hasrunkey"		"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full"
+			"process 1"		"%INSTALLDIR%\\dotNetFx40_Full_setup.exe"
+			"command 1"		"/passive /norestart"
+			"nocleanup"		"1"
+		}
+		"installed"
+		{
+			"hasrunkey"		"HKEY_LOCAL_MACHINE\\Software\\Microsoft\\XNA\\Framework\\v4.0"
+			"process 1"		"%windir%\\system32\\msiexec.exe"
+			"command 1"		"/package \"%INSTALLDIR%\\xnafx40_redist.msi\" /passive"
+			"nocleanup"		"1"
+		}
+	}
+}
+"kvsignatures"
+{
+	"installscript"		"23f588aa4d2f85ba0f7e2f77126a8afd8b4bdea4c12dc38379f9bbda11d86326afddd7766da82d42a4b3da878f4bd1866099d72b2722d670052c994573294079301cc7ae24231677370401e14714791eb38cc3c685eb6a3fad2834e075dbc5138f0a63fa3e288b73dce60b595e966f55834fd5b501df95a24d740a1221c6f0e6"
+}
